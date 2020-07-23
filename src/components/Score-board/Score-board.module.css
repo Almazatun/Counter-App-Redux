@@ -1,0 +1,9 @@
+.container {
+    composes: generalContainerSize from  "../../index.css";
+}
+.box_first {
+    composes: generalBoxFirst from "../../index.css";
+}
+.box_second {
+    composes: generalBoxSecond from "../../index.css"
+}

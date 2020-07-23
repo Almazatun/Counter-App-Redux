@@ -1,0 +1,7 @@
+
+.Style {
+    composes: general_buttonStyle from  "../../index.css";
+}
+.disabled {
+    opacity: 0.4;
+}

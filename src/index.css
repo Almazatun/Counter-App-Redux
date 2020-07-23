@@ -11,3 +11,45 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.general_buttonStyle {
+  background-color: seagreen;
+  height: 100px;
+  width: auto;
+  border-radius: 10px;
+  outline: none;
+  font-size: 3vh;
+}
+.generalInputStyle {
+  height: 35px;
+}
+
+.generalContainerSize {
+  border: 3px solid red;
+  height: auto;
+  width: 500px;
+  border-radius: 35px;
+}
+
+.generalBoxFirst {
+  display: flex;
+ justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #294b8e;
+  height: 150px;
+  width: auto;
+  vertical-align: middle;
+ }
+.generalBoxSecond {
+  padding: 35px;
+  /*border: 1px solid #294b8e;*/
+  height: 150px;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+ }
+
+
+
+
