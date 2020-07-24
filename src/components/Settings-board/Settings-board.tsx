@@ -1,4 +1,4 @@
-import React, {ChangeEvent, CSSProperties, useState} from "react";
+import React, {ChangeEvent, CSSProperties} from "react";
 import {Button} from "../Button/Button";
 import style from "./Settings-board.module.css";
 import {TypeMapDispatchToProps, TypeMapStateToProps} from "./Settings-board-Container";
@@ -9,10 +9,19 @@ export const SettingsBoard: React.FunctionComponent<SettingsBoardPropsType> = (p
 
     const onChangeStart = (event: ChangeEvent<HTMLInputElement>) => {
        props.getStartValue(parseInt(event.currentTarget.value));
+        props.disabled();
+        props.viewWindow();
+        props.changeValueDisabled();
     };
     const onChangeMax = (event: ChangeEvent<HTMLInputElement>) => {
         props.getMaxValue(parseInt(event.currentTarget.value));
+        props.disabled()
+        props.viewWindow();
+        props.changeValueDisabled();
     };
+    const setSettingParameters = () => {
+        props.setSettingsParameters();
+    }
 
 
     let Input: CSSProperties = {
@@ -46,7 +55,7 @@ export const SettingsBoard: React.FunctionComponent<SettingsBoardPropsType> = (p
                 </div>
             </div>
             <div className={style.box_second}>
-                <Button title={'set parameters'}/>
+                <Button onClick={setSettingParameters} disable={props.Counter.disabled} title={'set parameters'}/>
             </div>
         </div>
     )
