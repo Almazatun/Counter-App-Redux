@@ -1,24 +1,37 @@
-import React, {ChangeEvent, CSSProperties} from "react";
+import React, {ChangeEvent, CSSProperties, useEffect} from "react";
 import {Button} from "../Button/Button";
 import style from "./Settings-board.module.css";
 import {TypeMapDispatchToProps, TypeMapStateToProps} from "./Settings-board-Container";
 
 type SettingsBoardPropsType = TypeMapStateToProps & TypeMapDispatchToProps
 
-export const SettingsBoard: React.FunctionComponent<SettingsBoardPropsType> = (props:SettingsBoardPropsType) => {
+export const SettingsBoard: React.FunctionComponent<SettingsBoardPropsType> = (props: SettingsBoardPropsType) => {
+
+    useEffect( () => {
+        const start = localStorage.getItem('startValue')
+        const max = localStorage.getItem('maxValue')
+        props.getStartValue(parseInt(start!))
+        props.getMaxValue(parseInt(max!))
+
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem('startValue', JSON.stringify(props.Counter.startValue))
+        localStorage.setItem('maxValue', JSON.stringify(props.Counter.maxValue))
+    }, )
+
 
     const onChangeStart = (event: ChangeEvent<HTMLInputElement>) => {
-       props.getStartValue(parseInt(event.currentTarget.value));
+        props.getStartValue(parseInt(event.currentTarget.value));
         props.disabled();
-        props.viewWindow();
         props.changeValueDisabled();
     };
     const onChangeMax = (event: ChangeEvent<HTMLInputElement>) => {
         props.getMaxValue(parseInt(event.currentTarget.value));
         props.disabled()
-        props.viewWindow();
         props.changeValueDisabled();
     };
+
     const setSettingParameters = () => {
         props.setSettingsParameters();
     }
@@ -29,7 +42,8 @@ export const SettingsBoard: React.FunctionComponent<SettingsBoardPropsType> = (p
         fontSize: '20px',
         width: "100px",
         borderRadius: '15px',
-        textAlign: "center"
+        textAlign: "center",
+        backgroundColor: !props.Counter.disabled ? 'mediumseagreen' : 'orangered'
     }
     let span: CSSProperties = {
         margin: '20px'
@@ -55,7 +69,7 @@ export const SettingsBoard: React.FunctionComponent<SettingsBoardPropsType> = (p
                 </div>
             </div>
             <div className={style.box_second}>
-                <Button onClick={setSettingParameters} disable={props.Counter.disabled} title={'set parameters'}/>
+                <Button onClick={setSettingParameters} disable={props.Counter.disabledSetings} title={'set parameters'}/>
             </div>
         </div>
     )

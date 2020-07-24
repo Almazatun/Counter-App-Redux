@@ -7,3 +7,7 @@
 .box_second {
     composes: generalBoxSecond from "../../index.css"
 }
+.box_first_done {
+    composes: generalBoxFirst from "../../index.css";
+    color: gold;
+}

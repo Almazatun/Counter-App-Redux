@@ -7,7 +7,7 @@ import {
     disabledButtonBooleanAC,
     getMaxValueAC,
     getStartValueAC, setValueAC,
-    StateType, viewWindowOnTheBoardAC
+    StateType,
 } from "../../redux/reducer/reducer_counter";
 
 
@@ -18,7 +18,6 @@ export type TypeMapDispatchToProps = {
     getStartValue: (startValue: number) => void
     getMaxValue: (value: number) => void
     disabled: () => void
-    viewWindow: () => void
     setSettingsParameters: () => void
     changeValueDisabled: () => void
 }
@@ -37,9 +36,6 @@ const mapDispatchToProps = (dispatch: Dispatch<ActionsType>) => {
         },
         disabled: () => {
             dispatch(disabledButtonBooleanAC())
-        },
-        viewWindow: () => {
-            dispatch(viewWindowOnTheBoardAC())
         },
         setSettingsParameters: () => {
             dispatch(setValueAC())

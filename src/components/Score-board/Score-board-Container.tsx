@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {AppStateType} from "../../redux/redux_store";
 import {ScoreBoard} from "./Score-board";
 import {
-    ActionsType, incrementValueAC, resetValueAC,
+    ActionsType, getMaxValueAC, getStartValueAC, incrementValueAC, resetValueAC,
     StateType
 } from "../../redux/reducer/reducer_counter";
 
@@ -13,6 +13,7 @@ export type TypeMapStateToProps = {
 export type TypeMapDispatchToProps = {
     incrimentStartValue: () => void
     resetValue: () => void
+
 }
 const mapStateToProps = (state: AppStateType): TypeMapStateToProps  => {
     return {
@@ -27,7 +28,7 @@ const mapDispatchToProps = (dispatch: Dispatch<ActionsType>) => {
         },
         resetValue: () => {
             dispatch(resetValueAC())
-        }
+        },
     }
 }
 
