@@ -1,20 +1,18 @@
-type State = {
+export type StateType = {
     startValue: number
     maxValue: number
 }
 
-let initialState: State = {
+let initialState: StateType = {
     startValue: 0,
-    maxValue: 0
+    maxValue: 0,
 }
 type StateCounterType = typeof initialState
 
-type ActionsType = IncrementValueType & SetValueType & GetStartValueType
-& GetMaxValueType
+export type ActionsType = GetStartValueType | GetMaxValueType | IncrementValueType
+    | SetValueType
 
-type IncrementValueType = {
-    type: "INCREMENT-VALUE"
-};
+type IncrementValueType = { type: "INCREMENT-VALUE" };
 type SetValueType = {
     type: 'SET-VALUE'
     payload: {startValue: number, maxValue: number}
@@ -38,18 +36,18 @@ export const reducerCounter = (state = initialState, action: ActionsType): State
         case 'GET-MAX-VALUE':
             return {
                 ...state, maxValue: action.payload
-            }
+            };
         case 'INCREMENT-VALUE':
             return state
         default:
             return state;
     }
 };
-export const getStartValueAC = (value: number): GetStartValueType  => {
-    return {type: 'GET-START-VALUE', payload: value}
+export const getStartValueAC = (startValue: number): GetStartValueType  => {
+    return {type: 'GET-START-VALUE', payload: startValue}
 };
-export const getMaxValueAC = (value: number): GetMaxValueType  => {
-    return {type: 'GET-MAX-VALUE', payload: value}
+export const getMaxValueAC = (maxValue: number): GetMaxValueType  => {
+    return {type: 'GET-MAX-VALUE', payload: maxValue}
 };
 export const incrementValueAC = (): IncrementValueType => {
     return {type: 'INCREMENT-VALUE'}

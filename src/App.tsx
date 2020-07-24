@@ -1,8 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import {SettingsBoard} from "./components/Settings-board/Settings-board";
 import {ScoreBoard} from "./components/Score-board/Score-board";
+import {SettingsBoardContainer} from "./components/Settings-board/Settings-board-Container";
+import logo from './logo.svg'
+
 
 const App: React.FunctionComponent = () => {
 
@@ -10,7 +11,7 @@ const App: React.FunctionComponent = () => {
         <div className="App">
             <img src={logo} className="App-logo" alt="logo"/>
             <div className={'Content'}>
-                < SettingsBoard/>
+                <SettingsBoardContainer/>
                 < ScoreBoard/>
             </div>
         </div>

@@ -1,8 +1,20 @@
-import React, {CSSProperties} from "react";
+import React, {ChangeEvent, CSSProperties, useState} from "react";
 import {Button} from "../Button/Button";
-import style from './Settings-board.module.css'
+import style from "./Settings-board.module.css";
+import {TypeMapDispatchToProps, TypeMapStateToProps} from "./Settings-board-Container";
 
-export const SettingsBoard: React.FunctionComponent = () => {
+type SettingsBoardPropsType = TypeMapStateToProps & TypeMapDispatchToProps
+
+export const SettingsBoard: React.FunctionComponent<SettingsBoardPropsType> = (props:SettingsBoardPropsType) => {
+
+    const onChangeStart = (event: ChangeEvent<HTMLInputElement>) => {
+       props.getStartValue(parseInt(event.currentTarget.value));
+    };
+    const onChangeMax = (event: ChangeEvent<HTMLInputElement>) => {
+        props.getMaxValue(parseInt(event.currentTarget.value));
+    };
+
+
     let Input: CSSProperties = {
         height: '35px',
         fontSize: '20px',
@@ -13,14 +25,24 @@ export const SettingsBoard: React.FunctionComponent = () => {
     let span: CSSProperties = {
         margin: '20px'
     }
+
+
     return (
         <div className={style.container}>
             <div className={style.box_first}>
                 <div>
-                    <span style={span}>start Value</span><input style={Input} type={'number'}/>
+                    <span style={span}>start Value</span>
+                    <input value={props.Counter.startValue}
+                           onChange={onChangeStart}
+                           style={Input}
+                           type={'number'}/>
                 </div>
                 <div>
-                    <span style={span}>max Value</span><input style={Input} type={'number'}/>
+                    <span style={span}>max Value</span>
+                    <input style={Input}
+                           onChange={onChangeMax}
+                           value={props.Counter.maxValue}
+                           type={'number'}/>
                 </div>
             </div>
             <div className={style.box_second}>
