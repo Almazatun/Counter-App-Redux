@@ -3,7 +3,7 @@ import {SettingsBoard} from "./Settings-board";
 import {connect} from "react-redux";
 import {AppStateType} from "../../redux/redux_store";
 import {
-    ActionsType, chnageValueDisabledScoreBoardButtonAC,
+    ActionsType, changeValueDisabledScoreBoardButtonAC,
     disabledButtonBooleanAC,
     getMaxValueAC,
     getStartValueAC, setValueAC,
@@ -41,7 +41,7 @@ const mapDispatchToProps = (dispatch: Dispatch<ActionsType>) => {
             dispatch(setValueAC())
         },
         changeValueDisabled: () => {
-            dispatch(chnageValueDisabledScoreBoardButtonAC())
+            dispatch(changeValueDisabledScoreBoardButtonAC())
         }
     }
 }

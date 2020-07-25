@@ -2,20 +2,20 @@ export type StateType = {
     startValue: number
     maxValue: number
     disabled: boolean
-    incrimentValue: number | null
+    incrementValue: number | null
     disabledScoreBoard: boolean
-    disabledSetings: boolean
+    disabledSettings: boolean
 }
 
 let initialState: StateType = {
     startValue: 0,
     maxValue: 0,
     disabled: false,
-    incrimentValue: null,
+    incrementValue: null,
     disabledScoreBoard: true,
-    disabledSetings: false
-
+    disabledSettings: false
 }
+
 type StateCounterType = typeof initialState
 
 export type ActionsType = GetStartValueType | GetMaxValueType | DiabledType |
@@ -46,7 +46,7 @@ export const reducerCounter = (state = initialState, action: ActionsType): State
     switch (action.type) {
         case 'GET-START-VALUE':
             return {
-                ...state, startValue: action.payload, incrimentValue: action.payload
+                ...state, startValue: action.payload, incrementValue: action.payload
             };
         case 'GET-MAX-VALUE':
             return {
@@ -56,32 +56,34 @@ export const reducerCounter = (state = initialState, action: ActionsType): State
             return {
                 ...state, disabled: state.startValue > state.maxValue
                     || state.startValue < 0
+                    || state.startValue === state.maxValue,
+                disabledSettings: state.startValue > state.maxValue
+                    || state.startValue < 0
                     || state.startValue === state.maxValue
-                    ? true : false
             };
         case 'INCREMENT-VALUE':
             return {
                 ...state,
-                incrimentValue: state.incrimentValue! < state.maxValue ?  state.incrimentValue! + 1 : state.maxValue
+                incrementValue: state.incrementValue! < state.maxValue ?  state.incrementValue! + 1 : state.maxValue
             }
         case'RESET-VALUE':
             return {
                 ...state,
-                incrimentValue: state.startValue
+                incrementValue: state.startValue
             };
         case "SET-VALUE":
             return {
                 ...state,
-                incrimentValue: state.incrimentValue,
+                incrementValue: state.incrementValue,
                 disabledScoreBoard:  false,
-                disabledSetings: true
+                disabledSettings: true
 
             }
         case 'CHANGING-VALUE-DISABLED-SCORE-BOARD-BUTTON':
             return {
                 ...state,
                 disabledScoreBoard: true,
-                disabledSetings: false
+                disabledSettings: false
             }
         default:
             return state;
@@ -105,6 +107,6 @@ export const resetValueAC = (): ResetValue => {
 export const setValueAC = () : SetValueType => {
     return {type: 'SET-VALUE'}
 };
-export const chnageValueDisabledScoreBoardButtonAC = () : chnageValueDisabledScoreBoardButtonType => {
+export const changeValueDisabledScoreBoardButtonAC = () : chnageValueDisabledScoreBoardButtonType => {
     return {type: 'CHANGING-VALUE-DISABLED-SCORE-BOARD-BUTTON'}
 };

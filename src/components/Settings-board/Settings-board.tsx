@@ -69,7 +69,7 @@ export const SettingsBoard: React.FunctionComponent<SettingsBoardPropsType> = (p
                 </div>
             </div>
             <div className={style.box_second}>
-                <Button onClick={setSettingParameters} disable={props.Counter.disabledSetings} title={'set parameters'}/>
+                <Button onClick={setSettingParameters} disable={props.Counter.disabled || props.Counter.disabledSettings} title={'set parameters'}/>
             </div>
         </div>
     )
