@@ -18,8 +18,8 @@ let initialState: StateType = {
 
 type StateCounterType = typeof initialState
 
-export type ActionsType = GetStartValueType | GetMaxValueType | DiabledType |
-    IncrementValueType | ResetValue | SetValueType | chnageValueDisabledScoreBoardButtonType
+export type ActionsType = GetStartValueType | GetMaxValueType | DisabledType |
+    IncrementValueType | ResetValue | SetValueType | changeValueDisabledScoreBoardButtonType
 
 type IncrementValueType = { type: "INCREMENT-VALUE" };
 type ResetValue = {type:'RESET-VALUE'}
@@ -31,13 +31,13 @@ type GetMaxValueType = {
     type: 'GET-MAX-VALUE'
     payload: number
 };
-type DiabledType = {
+type DisabledType = {
     type: 'DISABLED-SWITCH'
 }
 type SetValueType = {
     type: 'SET-VALUE'
 };
-type chnageValueDisabledScoreBoardButtonType = {
+type changeValueDisabledScoreBoardButtonType = {
     type: 'CHANGING-VALUE-DISABLED-SCORE-BOARD-BUTTON'
 };
 
@@ -95,7 +95,7 @@ export const getStartValueAC = (startValue: number): GetStartValueType  => {
 export const getMaxValueAC = (maxValue: number): GetMaxValueType  => {
     return {type: 'GET-MAX-VALUE', payload: maxValue}
 };
-export const disabledButtonBooleanAC = (): DiabledType  => {
+export const disabledButtonBooleanAC = (): DisabledType  => {
     return {type: 'DISABLED-SWITCH'}
 };
 export const incrementValueAC = (): IncrementValueType => {
@@ -107,6 +107,6 @@ export const resetValueAC = (): ResetValue => {
 export const setValueAC = () : SetValueType => {
     return {type: 'SET-VALUE'}
 };
-export const changeValueDisabledScoreBoardButtonAC = () : chnageValueDisabledScoreBoardButtonType => {
+export const changeValueDisabledScoreBoardButtonAC = () : changeValueDisabledScoreBoardButtonType => {
     return {type: 'CHANGING-VALUE-DISABLED-SCORE-BOARD-BUTTON'}
 };

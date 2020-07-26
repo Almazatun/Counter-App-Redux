@@ -7,7 +7,7 @@ type ScoreBoardType = TypeMapStateToProps & TypeMapDispatchToProps
 
 export const ScoreBoard: React.FunctionComponent<ScoreBoardType> = (props: ScoreBoardType) => {
 
-    const incrimentValue = () => {
+    const incrementValue = () => {
         props.incrimentStartValue();
     };
     const resetValue = () => {
@@ -31,7 +31,7 @@ export const ScoreBoard: React.FunctionComponent<ScoreBoardType> = (props: Score
                 <h1>{basicView}</h1>
             </div>
             <div className={style.box_second}>
-                <Button disable={incrementDisabled} onClick={incrimentValue} title={'increment'}/>
+                <Button disable={incrementDisabled} onClick={incrementValue} title={'increment'}/>
                 <Button disable={resetDisabled} onClick={resetValue} title={'reset'}/>
             </div>
         </div>

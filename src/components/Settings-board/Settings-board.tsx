@@ -1,4 +1,4 @@
-import React, {ChangeEvent, CSSProperties, useEffect} from "react";
+import React, {ChangeEvent, CSSProperties} from "react";
 import {Button} from "../Button/Button";
 import style from "./Settings-board.module.css";
 import {TypeMapDispatchToProps, TypeMapStateToProps} from "./Settings-board-Container";
@@ -6,20 +6,6 @@ import {TypeMapDispatchToProps, TypeMapStateToProps} from "./Settings-board-Cont
 type SettingsBoardPropsType = TypeMapStateToProps & TypeMapDispatchToProps
 
 export const SettingsBoard: React.FunctionComponent<SettingsBoardPropsType> = (props: SettingsBoardPropsType) => {
-
-    useEffect( () => {
-        const start = localStorage.getItem('startValue')
-        const max = localStorage.getItem('maxValue')
-        props.getStartValue(parseInt(start!))
-        props.getMaxValue(parseInt(max!))
-
-    }, [])
-
-    useEffect(() => {
-        localStorage.setItem('startValue', JSON.stringify(props.Counter.startValue))
-        localStorage.setItem('maxValue', JSON.stringify(props.Counter.maxValue))
-    }, )
-
 
     const onChangeStart = (event: ChangeEvent<HTMLInputElement>) => {
         props.getStartValue(parseInt(event.currentTarget.value));
