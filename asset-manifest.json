@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/scoreboard-react-redux/static/css/main.cf69db3d.chunk.css",
+    "main.js": "/scoreboard-react-redux/static/js/main.d22451e2.chunk.js",
+    "main.js.map": "/scoreboard-react-redux/static/js/main.d22451e2.chunk.js.map",
+    "runtime-main.js": "/scoreboard-react-redux/static/js/runtime-main.1156b582.js",
+    "runtime-main.js.map": "/scoreboard-react-redux/static/js/runtime-main.1156b582.js.map",
+    "static/js/2.9643f540.chunk.js": "/scoreboard-react-redux/static/js/2.9643f540.chunk.js",
+    "static/js/2.9643f540.chunk.js.map": "/scoreboard-react-redux/static/js/2.9643f540.chunk.js.map",
+    "index.html": "/scoreboard-react-redux/index.html",
+    "precache-manifest.4caa8a09158af290fc026c17c9b6f3cc.js": "/scoreboard-react-redux/precache-manifest.4caa8a09158af290fc026c17c9b6f3cc.js",
+    "service-worker.js": "/scoreboard-react-redux/service-worker.js",
+    "static/css/main.cf69db3d.chunk.css.map": "/scoreboard-react-redux/static/css/main.cf69db3d.chunk.css.map",
+    "static/js/2.9643f540.chunk.js.LICENSE.txt": "/scoreboard-react-redux/static/js/2.9643f540.chunk.js.LICENSE.txt",
+    "static/media/react_redux.png": "/scoreboard-react-redux/static/media/react_redux.99e0859d.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1156b582.js",
+    "static/js/2.9643f540.chunk.js",
+    "static/css/main.cf69db3d.chunk.css",
+    "static/js/main.d22451e2.chunk.js"
+  ]
+}
